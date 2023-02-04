@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+</head>
+
+<body>
+
+    <header class="bg-black">
+        <nav class="flex flex-col md:flex-row justify-between items-center  px-6 md:px-12 py-5 relative">
+            <div class="w-screen md:w-full flex justify-between items-center px-6">
+                <img src="../../assets/logo/logo.svg" class="h-[100px]" alt="logo">
+                <div class="md:hidden text-pink-500" id="menu-toggle">
+                    <i class="fa-solid fa-bars fa-2x"></i>
+                </div>
+            </div>
+            <ul id="menu" class="hidden md:flex flex-col md:flex-row items-left md:items-center
+             justify-start md:justify-end   h-screen md:h-fit 
+              w-[60%] md:w-full absolute bg-pink-500 md:bg-transparent 
+              left-0  top-0 md:top-8 z-40 pt-20 md:pt-0">
+                <li class="mx-6 my-4 md:my-0 text-gray-100 text-lg">
+                    <a href="#about">
+                        About
+                    </a>
+                </li>
+                <li class="mx-6 my-4 md:my-0 text-gray-100 text-lg">
+                    <a href="#pricing">
+                        Pricing
+                    </a>
+                </li>
+                <li class="mx-6 my-4 md:my-0 text-gray-100 text-lg">
+                    Support
+                </li>
+                <li class="mx-6 my-4 md:my-0 text-gray-100 text-lg">
+                    Join
+                </li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <section class="h-screen w-full bg-white py-12">
+        <form action="" id="loginform">
+            <center>
+                <h1 class="text-3xl font-bold">Hi, Welcome Back! 👋</h1>
+            </center>
+            <div class="w-full md:w-5/12 mx-auto mt-12 px-6 md:px-3">
+                <div class="my-2">
+                    <label class="ml-1 text-gray-500 mb-2">Username</label>
+                    <input type="text" name="" id="username"
+                        class="h-12 w-full border border-2 border-slate-300 rounded-xl px-3" autocomplete="off"
+                        required>
+                </div>
+                <div class="my-2">
+                    <label class="ml-1 text-gray-500 mb-2">Password</label>
+                    <input type="password" name="" id="password"
+                        class="h-12 w-full border border-2 border-slate-300 rounded-xl px-3" autocomplete="off"
+                        required>
+                </div>
+
+                <div class="flex flex-row justify-between items-center px-2 my-3">
+                    <div class="flex flex-row justify-between items-center ">
+                        <input type="checkbox" name="" id="" class="border border-2 border-slate-100 h-4 w-4 mr-2">
+                        <p>Remember Me</p>
+                    </div>
+                    <p class="text-red-400">Forgot Password?</p>
+                </div>
+                <Center>
+                    <button type="submit" class="bg-blue-500 text-lg rounded w-full mx-auto text-white py-2"
+                        id="submitbtn">login</button>
+                </Center>
+            </div>
+        </form>
+    </section>
+
+    <script type="module" src="/main.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a0242a6fc7.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
