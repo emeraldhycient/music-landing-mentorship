@@ -27,6 +27,9 @@ const username = document.getElementById("username")
 
 const password = document.getElementById("password")
 
+const loader = document.getElementById("loader")
+
+const submitbtn = document.getElementById("submitbtn")
 
 // password with minmun strength
 const mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})");
@@ -46,6 +49,11 @@ loginform.addEventListener("submit", function (event) {
         password.style.borderColor = "green"
         if (usernamevalue !== "" && usernamevalue !== null && usernamevalue !== undefined) {
             username.style.borderColor = "green"
+
+
+            toggleElemet(loader, "block")
+            toggleElemet(submitbtn, "")
+
             fetch('https://dummyjson.com/auth/login', {
                 //methods -> POST,GET,PUT,PATCH,DELETE
                 method: 'POST',
@@ -57,7 +65,24 @@ loginform.addEventListener("submit", function (event) {
                 })
             })
                 .then(res => res.json())
-                .then(console.log);
+                .then((data) => {
+                    if (data?.token) {
+                        sessionStorage.setItem("usersDetail", JSON.stringify(data))
+                        window.location.href = "/src/pages/dashboard.html"
+                    } else {
+                        alert("invalid login details")
+                    }
+                    // window.location.reload();
+                })
+                .catch((reason) => {
+                    console.log(reason)
+                })
+
+            setTimeout(() => {
+                toggleElemet(submitbtn, "block")
+                toggleElemet(loader, "")
+            }, 1000)
+
 
 
         } else {
@@ -70,12 +95,22 @@ loginform.addEventListener("submit", function (event) {
 
 
 
+const toggleElemet = (element, display) => {
+    if (element.style.display !== "none") {
+        element.style.display = "none"
+    } else {
+        element.style.display = display;
+    }
+}
 
 
 
 
+const profileSection = document.querySelector("#profileSection")
 
+profileSection.innerHTML = "<h1>hello patience</h1>"
 
+console.log("profileSection", profileSection)
 
 
 
